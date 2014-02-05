@@ -1,0 +1,7 @@
+#! /bin/bash
+# Simply type 'screen' with the name of the file and then select a region
+# save a screenshot of the region with that name in the current dir.
+
+timeDelay=3 # Time delay from selection to capture.
+
+scrot -scd $timeDelay $1 

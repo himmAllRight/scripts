@@ -1,0 +1,6 @@
+#/bin/bash
+# gets the current external ip and prints it with date to file.
+
+curl http://ipecho.net/plain > ~/Dropbox/current_ip.txt
+
+echo -e "\nIP last updated at: $(date)" >> ~/Dropbox/current_ip.txt

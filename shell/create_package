@@ -1,0 +1,9 @@
+#!/bin/bash
+# Converts a folder into a package with the date.
+# Please Note, when writing what folder to package, do not put '/' the end.
+#
+# Correct Example: create_package example_folder
+# result: example_folder_YYYYMMDDHHMM.tar.gz
+
+filename=$1
+tar -czvf "$1_"`date +"%Y%m%d%H%M"`.tar.gz $1
