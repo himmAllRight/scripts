@@ -1,0 +1,19 @@
+#!/bin/bash
+downloadFolder="~/Downloads/mps"
+cd $downloadFolder
+for filename in *.mp3;
+do
+  artist="${filename%\ -*}"
+  DIR=~/Music/$artist
+
+  if [[ ! -e $DIR ]]; then
+    mkdir "$DIR"
+  fi
+  
+  if [[ ! -e $DIR/$filename ]]; then  
+    echo mv "$filename" "$DIR"
+    mv "$filename" "$DIR"
+  else
+    rm "$filename"
+  fi
+done
