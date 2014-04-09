@@ -8,3 +8,4 @@ ln -s /Data1/ryan/Pictures ~/Pictures
 ln -s /Data1/ryan/Videos ~/Videos
 ln -s /Data1/ryan/Dropbox ~/Dropbox
 ln -s /Data1/ryan/scripts ~/scripts
+ln -s /Data1/ryan/Network ~/Network
