@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DRIVE=$1
+
+sudo mkdir /run/media/ryan/HIMMELWRKP
+sudo mount /dev/$DRIVE /run/media/ryan/HIMMELWRKP
