@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo umount /run/media/ryan/HIMMELWRKP
+sudo rm -r /run/media/ryan/HIMMELWRKP
