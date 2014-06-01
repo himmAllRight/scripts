@@ -1,8 +1,5 @@
 def loop():
 	""" Loop to get problem """ 
-	i = 0
-	j = window
-
 	maxProduct = 0
 
 	# Moves window through number
