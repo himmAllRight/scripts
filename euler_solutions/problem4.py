@@ -1,5 +1,7 @@
-def isPalendrome(num):
+def isPalendrome(number):
 	""" Reads an input and determines if it is a pallendrome """
+	
+	num = str(number)
 	i 	= 0
 	j 	= len(num) - 1
 	mid = len(num) // 2
@@ -21,4 +23,4 @@ def isPalendrome(num):
 
 
 ## Execution Code ##
-print(isPalendrome('acka'))
+print(isPalendrome(1991))
