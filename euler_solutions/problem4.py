@@ -9,7 +9,7 @@ def isPalendrome(number):
 	#print(mid)
 	
 	# While i and j are not in the middle
-	while( i != mid and j != mid):
+	while( i != mid):
 		#print(i,j,sep="\t")
 		#print(num[i],num[j], sep="\t")
 		if(num[i] != num[j]):
@@ -36,7 +36,7 @@ def numberCombos():
 
 ## Execution Code ##
 pallendromes = []
-print(isPalendrome(1991))
+print(isPalendrome(""))
 numberCombos()
 print(pallendromes)
 print(max(pallendromes))
