@@ -6,12 +6,12 @@ def isPalendrome(number):
 	j 	= len(num) - 1
 	mid = len(num) // 2
 
-	print(mid)
+	#print(mid)
 	
 	# While i and j are not in the middle
 	while( i != mid and j != mid):
-		print(i,j,sep="\t")
-		print(num[i],num[j], sep="\t")
+		#print(i,j,sep="\t")
+		#print(num[i],num[j], sep="\t")
 		if(num[i] != num[j]):
 			return(False)
 		else:
@@ -20,7 +20,23 @@ def isPalendrome(number):
 
 	return(True)
 
+def numberCombos():
+	min  = 100
+	max  = 999
+
+	for num1 in range(min, max+1):
+
+
+		for num2 in range(min, max+1):
+			product = num1 * num2
+			if(isPalendrome(product)):
+				pallendromes.append(product)
+
 
 
 ## Execution Code ##
+pallendromes = []
 print(isPalendrome(1991))
+numberCombos()
+print(pallendromes)
+print(max(pallendromes))
