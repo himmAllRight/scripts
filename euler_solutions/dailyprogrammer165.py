@@ -20,9 +20,6 @@ class Game:
 
 			i = i + 1
 
-
-
-
 	def __init__(self, inputFileName):
 		self.maze = []
 		self.makeMaze(inputFileName)
@@ -34,6 +31,7 @@ class Game:
 		# Replace Starts
 		solvedBoard.board[self.startX][self.startY] = "S"
 		solvedBoard.printBoard()
+		print("exit")
 		
 
 class Board:
@@ -88,41 +86,49 @@ class Board:
 			return(self)
 
 	def makeMove(self):
+		# Trapped
+		if(len(self.options) < 1):
+			return(self)
+
+		else:
+			self.board[self.x][self.y] = "*"
+
+			print(self.options)
+
+			a = self.options[0]
+
+			if(a == 1):
+				self.moveDown()
+
+			elif(a == 2):
+				self.moveRight()
+
+			elif(a == 3):
+				self.moveLeft()
 		
-		while(self.Complete == False):
-			# Trapped
-			if(len(self.options) < 1):
-				return(self.board)
+			elif(a == 4):
+				self.moveUp()
 
-			else:
-				self.board[self.x][self.y] = "*"
+			self.options.pop(0)
+			#print(self.options)
 
-				if(self.options[0] == 1):
-					self.options.pop(0)
-					self.Complete = self.moveDown().Complete
+		
+		return(self)
+		print("hi")
 
-				elif(self.options[0] == 2):
-					self.options.pop(0)
-					self.Complete = self.moveRight().Complete
-
-				elif(self.options[0] == 3):
-					self.options.pop(0)
-					self.Complete = self.moveLeft().Complete
-			
-				elif(self.options[0] == 4):
-					self.options.pop(0)
-					self.Complete = self.moveUp().Complete
 
 
 
 	def moveDown(self):				
 		# Runs recursion of next board
 		self.nextBoard = Board(self.board, self.x + 1, self.y)
-		return(self)
 		if(self.nextBoard.Complete == True):
 			return(self.nextBoard)
 		else:
+			self.board[self.x][self.y] = " "
 			return(self)
+			print("D")
+			
 
 	def moveRight(self):				
 		# Runs recursion of next board
@@ -130,6 +136,7 @@ class Board:
 		if(self.nextBoard.Complete == True):
 			return(self.nextBoard)
 		else:
+			self.board[self.x][self.y] = " "
 			return(self)
 
 	def moveLeft(self):				
@@ -138,6 +145,7 @@ class Board:
 		if(self.nextBoard.Complete == True):
 			return(self.nextBoard)
 		else:
+			self.board[self.x][self.y] = " "
 			return(self)
 
 	def moveUp(self):				
@@ -146,6 +154,7 @@ class Board:
 		if(self.nextBoard.Complete == True):
 			return(self.nextBoard)
 		else:
+			self.board[self.x][self.y] = " "
 			return(self)
 
 ## Execution Code ##
