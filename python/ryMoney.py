@@ -10,6 +10,7 @@ class Categories:
 		## Adds new Category if it  does not exist
 		if(self.list.count(categoryName) == 0):
 			self.list.append(categoryName)
+			print(categoryName, " added to categories.")
 		else:
 			print("Category ", categoryName, " already exists!", sep="")
 
@@ -23,6 +24,25 @@ class Categories:
 	def removeCategory(self, deleteName):
 		if(self.list.count(deleteName) > 0):
 			self.list.remove(deleteName)
+			print(deleteName, " has been delted.")
+		else:
+			print("No category with the name ", deleteName, ".")
+
+	def saveCategories(self, saveFileName):
+		catOutFile = open(saveFileName, "w")
+		
+		for category in self.list:
+			print(category, file= catOutFile, sep="\n")
+		
+		catOutFile.close()
+
+	def loadCategories(self,loadFileName):
+		catInFile = open(loadFileName, "r")
+
+		# Adds categories from save file, if they do not currently exist.
+		for line in catInFile:
+			self.addCategory(line.strip())
+
 
 	def printCategories(self):
 		print("Categories:")
@@ -91,16 +111,56 @@ class CLI:
 
 	def __init__(self):
 		print("Hello! Welcome to ryMoney. \n")
+		catSaveName = "cats.txt"
+		#######################
+		# Auto-load functions #
+		#######################
+		cats = Categories()
+		cats.loadCategories(catSaveName)
+		
+		#######################
+		#### Main Run Loop ####
+		#######################
 		self.command = ""
-
 		# Main Run Loop
 		while(self.command != "q"):
 			self.printOptions()
 			self.command = input("input: ")
 
+			""" Potential Selection Options"""
 			# Test Creen Clearing
 			if(self.command == "c"):
 				os.system("clear")
+
+			# Print Loaded Categories
+			if(self.command == "sc"):
+				os.system("clear")
+				cats.printCategories()
+
+			# Add new category
+			if(self.command == "ac"):
+				os.system("clear")
+				cats.printCategories()
+				newCatName = input("Enter New Category Name: ")
+				cats.addCategory(newCatName)
+				self.screenPauseClear()				
+				cats.saveCategories(catSaveName)
+
+			# Delete Category
+			if(self.command == "dc"):
+				os.system("clear")
+				cats.printCategories()
+				deleteCatName = input("Enter name of Category to delete: ")
+				cats.removeCategory(deleteCatName)
+				self.screenPauseClear()
+				cats.saveCategories(catSaveName)
+
+			# Help Menu
+			if(self.command == "h"):
+				os.system("clear")
+				print("Help Menu to be written...")
+				self.screenPauseClear()
+
 
 
 		# Ask to save on logout.
@@ -110,15 +170,22 @@ class CLI:
 			# Save command
 			print("File Saved!")
 
-		os.system("clear")
 		print("Have a good day! Good-bye.")
+		self.screenPauseClear()
 
 	def printOptions(self):
 		print("Please select what you would like to do:")
-		print("c - Create New")
-		print("l - Load Saved Account")
+		print("c  - Create New")
+		print("l  - Load Saved Account")
+		print("sc - Show saved Categories")
+		print("ac - Add new Category")
+		print("dc - Delete a Category")
 
 		print("\nh - help")
+
+	def screenPauseClear(self):
+		os.system("sleep 1")
+		os.system("clear")
 
 class __main__:
 	""" The Main Class """
@@ -136,6 +203,11 @@ class __main__:
 
 	#account = Account("Checking", deer)
 	#deer.printCategories()
+
+	#deer.loadCategories("savedCats.txt")
+
+	#deer.printCategories()
+	#print(deer.list)
 
 	#account.newDeposit("Income", 1, 500)
 	#account.newDeposit("Gift", 3, 50)
