@@ -1,4 +1,5 @@
 import time
+import os
 
 class Categories:
 	""" A payment category """
@@ -84,23 +85,60 @@ class Transaction:
 		self.amount	  = transactionAmount
 		self.balance  = newBalance
 
+
+class CLI:
+	""" The command line User Run environment """
+
+	def __init__(self):
+		print("Hello! Welcome to ryMoney. \n")
+		self.command = ""
+
+		# Main Run Loop
+		while(self.command != "q"):
+			self.printOptions()
+			self.command = input("input: ")
+
+			# Test Creen Clearing
+			if(self.command == "c"):
+				os.system("clear")
+
+
+		# Ask to save on logout.
+		askSave = input("Would you like to save before quitting? (y/n): ")
+		if(askSave == "y"):
+			print("Saving file...")
+			# Save command
+			print("File Saved!")
+
+		os.system("clear")
+		print("Have a good day! Good-bye.")
+
+	def printOptions(self):
+		print("Please select what you would like to do:")
+		print("c - Create New")
+		print("l - Load Saved Account")
+
+		print("\nh - help")
+
 class __main__:
 	""" The Main Class """
 	print("Main Class")
 
+	main = CLI()
+
 	## Test Execution Code ##
-	deer = Categories()
-	deer.addCategory("Rent")
-	deer.addCategory("Pay")
-	deer.addCategory("Bills")
-	deer.addCategory("Other")
+	#deer = Categories()
+	#deer.addCategory("Rent")
+	#deer.addCategory("Pay")
+	#deer.addCategory("Bills")
+	#deer.addCategory("Other")
 
 
-	account = Account("Checking", deer)
-	deer.printCategories()
+	#account = Account("Checking", deer)
+	#deer.printCategories()
 
-	account.newDeposit("Income", 1, 500)
-	account.newDeposit("Gift", 3, 50)
-	account.newDeposit("Income2", 2, 613)
-	account.newWithdrawl("Bills", 2, "02132", 63)
-	account.printAccountInfo()
+	#account.newDeposit("Income", 1, 500)
+	#account.newDeposit("Gift", 3, 50)
+	#account.newDeposit("Income2", 2, 613)
+	#account.newWithdrawl("Bills", 2, "02132", 63)
+	#account.printAccountInfo()
