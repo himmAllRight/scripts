@@ -1,0 +1,8 @@
+#!//bin/bash
+
+infilename=$1
+outfilename=$2
+seconds=$3
+
+echo "ffmpeg -ss $3 -i $1 -vcodec copy -acodec $2"
+ffmpeg -ss "$3" -i "$1" -vcodec copy -acodec "$2"
