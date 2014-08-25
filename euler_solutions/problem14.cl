@@ -16,12 +16,12 @@
   
   (loop for i from s to e do
         (setf tempVal (collatz-seq i 1))
-        (princ tempVal)
+
         (fresh-line)
         (if (> tempVal *maxChain*) 
             (progn((setf *maxChain* tempVal)
                    (setf *maxStart* i))))
         )
-      (format t "Max collatz-seq contains ~d terms and starts with the number ~d" maxChain maxStart)
+      (format t "Max collatz-seq contains ~d terms and starts with the number ~d" *maxChain* *maxStart*)
       )
             
