@@ -1,7 +1,7 @@
+; Ryan Himmelwright - Project Euler problem 14 Lisp Solution
 
 ; Returns the number of steps of a Collatz sequence for a starting number
 (defun collatz-seq (n i)
-  (format t "n: ~d i: ~d ~%" n i)
   (cond ((equal n 1) 
          i)
         ((oddp n) 
@@ -11,17 +11,18 @@
 
 ; Loop through numbers to find longest seq
 (defun find-longest (s e)
-  (defparameter *maxChain* 1)
-  (defparameter *maxStart* 1)
+  (let ((maxChain 5)
+        (maxStart 1))
   
-  (loop for i from s to e do
+  (loop for i from s to e by 1 do
         (setf tempVal (collatz-seq i 1))
-
-        (fresh-line)
-        (if (> tempVal *maxChain*) 
-            (progn((setf *maxChain* tempVal)
-                   (setf *maxStart* i))))
-        )
-      (format t "Max collatz-seq contains ~d terms and starts with the number ~d" *maxChain* *maxStart*)
-      )
-            
+        (if (> tempVal maxChain)
+            (progn (princ "True")
+              (setf maxChain tempVal)
+              (setf maxStart i)
+              (fresh-line))
+        
+        
+          ))
+    
+    (format t "The longest Collatz-Seq from ~d to ~d,~%is of length ~d, found with the starting value of ~d." s e maxChain maxStart)))
