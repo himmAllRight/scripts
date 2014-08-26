@@ -16,13 +16,11 @@
   
   (loop for i from s to e by 1 do
         (setf tempVal (collatz-seq i 1))
+        
         (if (> tempVal maxChain)
             (progn (princ "True")
               (setf maxChain tempVal)
               (setf maxStart i)
-              (fresh-line))
-        
-        
-          ))
+              (fresh-line))))
     
     (format t "The longest Collatz-Seq from ~d to ~d,~%is of length ~d, found with the starting value of ~d." s e maxChain maxStart)))
