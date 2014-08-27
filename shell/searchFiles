@@ -1,0 +1,10 @@
+#!/bin/bash
+searchDir=$1
+searchString=$2
+startDir=`pwd`
+echo $startDir
+for f in $searchDir/*
+do
+echo Currently looking in: $f
+grep -i -F $searchString $f
+done
