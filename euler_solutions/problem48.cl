@@ -6,3 +6,11 @@
 ;; Returns the last d didgets of a number n
 (defun lastDidgets (n d)
   (mod n (expt 10 d)))
+
+
+;; Optional Recursive solution :)
+(defun serriesSumRec (n)
+  (if (equalp 1 n)
+      1
+    (+ (expt n n) (serriesSumRec (1- n)))))
+               
