@@ -1,3 +1,5 @@
+import csv
+
 # Calcuates the interest added to a loan over a period.
 def calcInterest(princ, percent, t, interest = 0):
 	newInterest = interest + (princ * (percent/36500))
@@ -37,18 +39,59 @@ def allParamsSets(size, n):
 def runAlgs(princList, percentList, amount, minAmount, t):
 	# Get params List
 	startParams = allParamsSets(len(princList), int(amount/minAmount))
+	results     = []
 
 	for paramSet in startParams:
-		startVals = list(map(lambda a, b: a - (b * minAmount), princList, paramSet))
-		endVals   = list(map(lambda a, b: calcInterest(a, b, t), startVals, percentList))
-		print(sum(endVals))
+		startVals      = list(map(lambda a, b: a - (b * minAmount), princList, paramSet))
+		interestVals   = list(map(lambda a, b: calcInterest(a, b, t), startVals, percentList))
+		
+		results.append([sum(interestVals)] + list(map(lambda a: a * minAmount, paramSet)))
+
+	# Sort results
+	results.sort(key= lambda x: x[0])
+
+	# Return top 10 Results, if available, otherwise, print all results
+	if(len(results) >= 10):
+		return(results[:10])
+	else:
+		return(results)
+		
+
+# Simple function to load in data from file.
+def loadFile(inFilePath):
+	inFile = open(inFilePath, "r", newline= "")
+	names = []
+	princ = []
+	inter = []
+
+	# Try to open save file
+	try:
+		# For each line, load and add new gear item.
+		with open(inFilePath, 'r+', newline='') as data:
+			reader = csv.reader(data, delimiter= ",")
+
+			# For each line if file, load gear item.
+			i = 1
+			for line in reader:
+				if(i == 1):
+					names = line
+				if(i == 2):
+					princ = list(map(float, line))
+				if(i == 3):
+					inter = list(map(float, line))
+				i = i + 1
+				print(line)
+
+	except IOError:
+		# If IO error, make file.
+		f = open(inFilePath, "w+")
+		f.close()
+
+	return([names, princ, inter])
+
+# Function to nicely print out results
 
 
+inData = loadFile("/home/ryan/owncloud/Rebecca_Share/testLoans.csv")
 
-
-f = allParamsSets(3, 10)
-
-l1 = [2000, 3000]
-l2 = [4, 6]
-
-runAlgs(l1, l2, 200, 10, 30)
+print(runAlgs(inData[1], inData[2], 200, 10, 30))
