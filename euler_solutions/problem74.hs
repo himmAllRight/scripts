@@ -23,4 +23,4 @@ isNum  n = 0
 
 -- Runs the problem loop
 runProb :: Int -> Int
-runProb n = sum( map isNum [length (returnChain [x]) - 1 | x <- [1..n]])
+runProb n = sum( map isNum [length (returnChain [x]) | x <- [1..n]])
