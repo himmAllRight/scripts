@@ -21,4 +21,6 @@ isNum :: Int -> Int
 isNum 60 = 1
 isNum  n = 0
 
-
+-- Runs the problem loop
+runProb :: Int -> Int
+runProb n = sum( map isNum [length (returnChain [x]) | x <- [1..n]])
