@@ -1,0 +1,6 @@
+Debugger entered--Lisp error: (void-function bmi-calc)
+  (bmi-calc 6 0 162)
+  eval((bmi-calc 6 0 162) nil)
+  eval-last-sexp-1(nil)
+  eval-last-sexp(nil)
+  call-interactively(eval-last-sexp nil nil)

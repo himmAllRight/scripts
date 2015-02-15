@@ -1,0 +1,11 @@
+(defun bmi-calc (feet inches lbs)
+  (let* ((h (+ (* feet 12) inches))
+	 (bmi (* (/ lbs (expt h 2) 703))))
+    
+    bmi))
+
+
+(bmi-calc 6 0 162)
+
+(defun under-weight (w h)
+  )
