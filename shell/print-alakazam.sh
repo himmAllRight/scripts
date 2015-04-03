@@ -3,6 +3,7 @@
 #	Print the "Message of the day" 
 
 cat << EOF
+Welcome to...
                                              _       _                            
                                        /\   | |     | |                           
                                       /  \  | | __ _| | ____ _ ______ _ _ __ ___  
@@ -14,7 +15,7 @@ cat << EOF
                /:\`-//.                         -////s.               
                 //\`\`.oo/\`                   \`/+--/oy\`                
                  :/\`\`:/+s+\`               \`//.\`:+yo                  
-                  -+\`-////o+.           \`//\`\`./oy+       Operating System: $(uname -i) $(uname -o) 
+                  -+\`-////o+.           \`//\`\`./oy+       OS:              $(lsb_release -s -d)
                    -+.//////oo\`       \`/o:::/+sh:        Kernel:          $(uname -r)
                     .o//////+osoooooo+o/////+sh:         Hostname:        $(hostname)
                      -y///so:.\`\`-//////////osy/          User:            $(whoami)            
