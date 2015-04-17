@@ -12,4 +12,6 @@ aNums = [ x | x <- [10..28123], sum (devisors x) > x]
 -- Add up all the abundant numbers
 sumAnums = addNums aNums
 
+-- Sum up the numbers that cannot be written as the sum of two abundant numbers
+answer = sum (map (\x -> if x `elem` sumAnums then 0 else x) [1..28123])
 
