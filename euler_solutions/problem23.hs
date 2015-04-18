@@ -15,3 +15,4 @@ sumAnums = addNums aNums
 -- Sum up the numbers that cannot be written as the sum of two abundant numbers
 answer = sum (map (\x -> if x `elem` sumAnums then 0 else x) [1..28123])
 
+main = print answer
