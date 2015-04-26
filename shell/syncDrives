@@ -4,5 +4,4 @@ sudo rsync -avzh --stats --delete /Data1/ryan/ /Data2/ryan/ >> /var/log/syncDriv
 echo $(date) >> /Data1/syncLog.txt
 echo >> /Data1/syncLog.txt
 cp /Data1/syncLog.txt /Data2/
-cp /Data1/syncLog.txt /Data1/ryan/Dropbox/
 cp /Data1/syncLog.txt /Data1/ryan/owncloud/
