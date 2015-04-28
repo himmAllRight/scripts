@@ -14,3 +14,8 @@ play a b (sa, sb)
     | a `beats` b = (sa+1, sb)
     | b `beats` a = (sa, sb+1)
     | otherwise   = (sa, sb)
+
+multiPlay :: [RPS] -> [RPS] -> Score -> Score
+multiPlay [] b (sa,sb) = (sa,sb)
+multiPlay a [] (sa,sb) = (sa, sb)
+multiPlay (a:ax) (b:bx) (sa,sb) = multiPlay ax bx (play a b (sa,sb))
