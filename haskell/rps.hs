@@ -32,3 +32,6 @@ num2RPS x = rpsReturn
 numList2RPS :: [Int] -> [RPS]
 numList2RPS n = map num2RPS n
 
+altThree :: Int -> Int -> [RPS]
+altThree n s = (map (\x -> num2RPS (mod (x + s) 3)) [1..n])
+
