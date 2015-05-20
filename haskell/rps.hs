@@ -39,9 +39,14 @@ numList2RPS n = map num2RPS n
 buildMoveList :: Int -> ([RPS] -> [RPS] -> [RPS]) -> [RPS] -> ([RPS] -> [RPS] -> [RPS]) -> [RPS] -> [(RPS, RPS)]
 buildMoveList  n fa a fb b = if n == 0 then zip (reverse a) (reverse b) else buildMoveList (n - 1) fa (fa a b) fb (fb b a)
 
--- Needs to be updated to fit new format
-altThree :: Int -> Int -> [RPS]
-altThree n s = (map (\x -> num2RPS (mod (x + s) 3)) [1..n])
+altThree :: [RPS] -> [RPS] -> [RPS]
+altThree [] _ = [Paper]
+altThree (x:xs) _ = rpsReturn
+    where
+    rpsReturn
+      | x == Rock     = Paper:x:xs
+      | x == Paper    = Scissors:x:xs
+      | x == Scissors = Rock:x:xs
 
 oppLast :: [RPS] -> [RPS] -> [RPS]
 oppLast _ []     = [Rock]
