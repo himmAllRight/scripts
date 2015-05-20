@@ -35,3 +35,9 @@ numList2RPS n = map num2RPS n
 altThree :: Int -> Int -> [RPS]
 altThree n s = (map (\x -> num2RPS (mod (x + s) 3)) [1..n])
 
+-- Strategy Functions
+oppLast :: [RPS] -> [RPS] -> RPS -> [RPS]
+oppLast _ [] initRPS   = [initRPS]
+oppLast x (y:ys) _ = y : x
+
+
