@@ -1,23 +1,24 @@
 import os
 import sys
 
-
 # The main loop, flattens the files for each sub directory
 def mainLoop(rootDir):
     for curr in os.listdir(rootDir):
         subDir = rootDir + '/' + curr
         if(os.path.isdir(subDir)):
-            print(curr)
             relocateFiles(subDir)
 
 # Recurses through the sub directories and returns a list of pairs
 # containing the file's relative path and file name
 def buildFileList(inDir, fileList= []):
+    fileList = []
+    for fileName in os.listdir(inDir):
+        nextFile = inDir + '/' + fileName
+        if(os.path.isfile(nextFile)):
+            fileList.append((nextFile, fileName))
     for dirName in os.listdir(inDir):
         nextDir = inDir + '/' + dirName
-        if(os.path.isfile(nextDir)):
-            fileList.append((nextDir, dirName))
-        elif(os.path.isdir(nextDir)):
+        if(os.path.isdir(nextDir)):
             fileList = fileList + buildFileList(nextDir)
     return(fileList)
 
@@ -31,9 +32,15 @@ def relocateFiles(inDir):
     for curr in os.listdir(inDir):
         deleteDir = inDir + '/' + curr
         if(os.path.isdir(deleteDir)):
-           print('Removing %s' % curr)
+           print('Removing %s' % deleteDir)
            os.system('rm -r "%s"' % deleteDir)
-            
+
+
+#relocateFiles('./testing/Basshunter')
 
 # Execution Code
-mainLoop('./testing')
+if(len(sys.argv) > 1):
+    rootDir = sys.argv[1]
+else:
+    rootDir = './testing'
+mainLoop(rootDir)
