@@ -36,11 +36,9 @@ def relocateFiles(inDir):
            os.system('rm -r "%s"' % deleteDir)
 
 
-#relocateFiles('./testing/Basshunter')
-
 # Execution Code
 if(len(sys.argv) > 1):
     rootDir = sys.argv[1]
 else:
-    rootDir = './testing'
+    rootDir = '.'
 mainLoop(rootDir)
