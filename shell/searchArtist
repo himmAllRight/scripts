@@ -1,6 +1,8 @@
 #!/bin/bash
 
+artist="$1"
+
 echo -e "~/Music/\n--------------------"
-ls -l ~/Music/ | grep -i $1
+ls -l ~/Music/ | grep -i "$artist"
 echo -e "\n~/Downloads/mps/\n--------------------"
-ls -l ~/Downloads/mps/ | grep -i $1
+ls -l ~/Downloads/mps/ | grep -i "$artist"
