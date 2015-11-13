@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo -e "~/Music/\n--------------------"
+ls -l ~/Music/ | grep -i $1
+echo -e "\n~/Downloads/mps/\n--------------------"
+ls -l ~/Downloads/mps/ | grep -i $1
