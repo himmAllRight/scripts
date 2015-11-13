@@ -3,6 +3,6 @@
 artist="$1"
 
 echo -e "~/Music/\n--------------------"
-ls -l ~/Music/ | grep -i "$artist"
+ls -l ~/Music/ | grep -i --color=always "$artist"
 echo -e "\n~/Downloads/mps/\n--------------------"
-ls -l ~/Downloads/mps/ | grep -i "$artist"
+ls -l ~/Downloads/mps/ | grep -i --color=always "$artist"
