@@ -1,0 +1,8 @@
+#!/bin/bash
+
+song="$1"
+
+echo -e "~/Music/\n--------------------"
+find ~/Music/ | grep -i --color=always "$song"
+echo -e "\n~/Downloads/mps/\n--------------------"
+find ~/Downloads/mps/ | grep -i --color=always "$song"
