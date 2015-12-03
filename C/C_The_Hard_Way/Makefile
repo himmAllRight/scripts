@@ -3,6 +3,8 @@ CFLAGS=-Wall -g
 
 all: ex1 ex3
 
+rebuild: clean all
+
 ex1:
 	cc -Wall -g ex1.c -o ex1
 ex3:
