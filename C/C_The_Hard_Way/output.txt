@@ -1,0 +1,57 @@
+==20730== Memcheck, a memory error detector
+==20730== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20730== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==20730== Command: ./ex4
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E8213C: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Use of uninitialised value of size 8
+==20730==    at 0x4E7E0AB: _itoa_word (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E8268F: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E7E0B5: _itoa_word (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E8268F: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E8270D: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E82212: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E827C0: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E82260: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== Conditional jump or move depends on uninitialised value(s)
+==20730==    at 0x4E82297: vfprintf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x4E88DC8: printf (in /usr/lib64/libc-2.22.so)
+==20730==    by 0x400659: main (ex4.c:11)
+==20730== 
+==20730== 
+==20730== HEAP SUMMARY:
+==20730==     in use at exit: 0 bytes in 0 blocks
+==20730==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==20730== 
+==20730== All heap blocks were freed -- no leaks are possible
+==20730== 
+==20730== For counts of detected and suppressed errors, rerun with: -v
+==20730== Use --track-origins=yes to see where uninitialised values come from
+==20730== ERROR SUMMARY: 8 errors from 8 contexts (suppressed: 0 from 0)
