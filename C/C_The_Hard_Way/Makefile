@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g
 
-all: ex1 ex3 ex4 ex5 ex6 ex7 ex8 ex9
+all: ex1 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10
 
 rebuild: clean all
 
@@ -20,6 +20,8 @@ ex8:
 	cc -Wall -g ex8.c -o ex8
 ex9:
 	cc -Wall -g ex9.c -o ex9
+ex10:
+	cc -Wall -g ex10.c -o ex10
 clean:
-	rm -f ex1 ex3 ex4 ex5 ex6 ex7 ex8 ex9
+	rm -f ex1 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10
 
