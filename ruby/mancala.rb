@@ -1,33 +1,17 @@
 ## Class Defs
 class Player
+  # accessors
+  attr_reader   :name
+  attr_accessor :board
+  attr_accessor :score
+  attr_reader   :reverseP
+  
   def initialize(name, boardSize, initialMarbelCount, reverseP)
     @name      = name
     @board     = Array.new(boardSize, initialMarbelCount)
     @boardSize = boardSize
     @score     = 0
     @reverseP  = reverseP
-  end
-
-  # Accessor methods
-  def name
-    @name
-  end
-
-  def board
-    @board
-  end
-
-  def score
-    @score
-  end
-
-  def reverseP
-    @reverseP
-  end
-
-  # Set Methods
-  def set_score (score)
-    @score = score
   end
 
   # Print Methods
@@ -45,16 +29,13 @@ class Player
     return returnString
   end
 
-
   def board_labels ()
     if @reverseP
       ('a'..'z').to_a.take(@boardSize).reverse.map { |n| n.to_s.center(5)}.join(" ")
-
   else
     ('a'..'z').to_a.take(@boardSize).map { |n| n.to_s.center(5)}.join(" ")
     end
   end
-
 end
 
 
@@ -78,8 +59,6 @@ def printGameBoard(p1, p2, boardSize)
   p1_labels  =  (" " * 10) + p1.board_labels + (" " * 9)
   p2_labels  =  (" " * 10) + p2.board_labels + (" " * 9)
    
-
-
   print(p1_labels, "\n", border, "\n", p1_row, "\n", mid_row, "\n", p2_row, "\n", border, "\n", p2_labels, "\n")
     
 end
@@ -95,10 +74,4 @@ player2Name = "Rebecca"
 boardSize          = 6
 initialMarbelCount = 4
 
-
 boardIndexHash = createBoardIndex(boardSize)
-puts boardIndexHash["b"]
-
-testStr = "Ryan" +
-          " " +
-          "Himmelwright"
