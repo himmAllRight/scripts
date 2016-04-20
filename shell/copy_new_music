@@ -1,3 +1,0 @@
-#!/bin/bash
-
-scp -r ryan@`echo ~/desktopIP.txt`:~/Downloads/mps/ /cygdrive/c/Users/rhimmelwright/Music/mps
