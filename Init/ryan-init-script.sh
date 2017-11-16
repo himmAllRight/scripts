@@ -84,8 +84,8 @@ setup_website() {
     cd "$HOME/Documents/"
 
     # Pull down repos
-    git clone https://github.com/himmAllRight/himmAllRight-source.git
-    git clone https://github.com/himmAllRight/himmAllRight.github.io.git
+    git clone git@github.com:himmAllRight/himmAllRight-source.git
+    git clone git@github.com:himmAllRight/himmAllRight.github.io.git
 }
 
 # Setup Dev environments
