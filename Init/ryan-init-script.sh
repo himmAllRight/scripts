@@ -2,7 +2,8 @@
 
 
 usage() {
-	  echo -e "install.sh\n\tThis script installs my basic setup my computers.\n"
+	  echo -e "ryan-init-script.sh\n\tThis script installs my basic setup my computers.\n"
+    echo -e "Note: This is likely out of date until I get everything sorted out!!\n"
 	  echo "Usage:"
 	  echo "  base_solus                          - install solus basemin + base pkgs"
 	  echo "  basemin_solus                       - install solus base min pkgs"
@@ -77,6 +78,17 @@ devsetup_golang() {
     )
 }
 
+# Setup website repos
+setup_website() {
+    # Ensure Documents dir exists and move to it
+    mkdir -p "$HOME/Documents/"
+    cd "$HOME/Documents/"
+
+    # Pull down repos
+    git clone git@github.com:himmAllRight/himmAllRight-source.git
+    git clone git@github.com:himmAllRight/himmAllRight.github.io.git
+}
+
 # Setup Dev environments
 setup_dev() {
     devsetup_golang
@@ -116,42 +128,44 @@ ubuntu_cloud_setup() {
 # Bare Min apps for Solus Install
 basemin_solus() {
     ## Update System First
-    eopkg it update
+    sudo eopkg it update
 
     ## System Devel files
-    eopkg it -c system.devel
+    sudo eopkg it -c system.devel
 
     ## Remaining Solus Packages
-    eopkg it \
-          vim \
-          stow \
-          tmux \
-          fish \
-          emacs \
-          password-store
+    sudo eopkg it \
+         vim \
+         stow \
+         tmux \
+         fish \
+         emacs \
+         password-store
 }
 
-base_solus() {
+setup_solus_desktop() {
     # get solus bare min first
     basemin_solus
 
     # More custom solus packages
-    eopkg it \
-          telegram \
-          wire \
-          shotwell \
-          pithos \
-          gnome-tweak-tool \
-          hugo \
-          signal-desktop \
-          budgie-screenshot-applet \
-          budgie-caffeine-applet \
-          budgie-haste-applet \
-          peek \
-          virt-manager \
-          # Dev Packages
-          python3 \
-          golang
+    sudo eopkg it \
+         telegram \
+         wire \
+         shotwell \
+         pithos \
+         gnome-tweak-tool \
+         hugo \
+         signal-desktop \
+         budgie-screenshot-applet \
+         budgie-caffeine-applet \
+         budgie-haste-applet \
+         peek \
+         virt-manager \
+         # Dev Packages
+         python3 \
+             golang
+    
+    setup_website
 }
 
 
@@ -163,16 +177,16 @@ main() {
 		    exit 1
 	  fi
 
-	  if [[ $cmd == "base_solus" ]]; then
-		    check_is_sudo
-		    base_solus
+	  if [[ $cmd == "setup-solus-desktop" ]]; then
+		    #check_is_sudo
+		    setup_solus_desktop
 
-	  elif [[ $cmd == "basemin_solus" ]]; then
+	  elif [[ $cmd == "basemin-solus" ]]; then
 		    check_is_sudo
 		    basemin_solus
-	  elif [[ $cmd == "get_dotfiles" ]]; then 
+	  elif [[ $cmd == "get-dotfiles" ]]; then 
 		    get_dotfiles
-	  elif [[ $cmd == "set_dotfiles" ]]; then
+	  elif [[ $cmd == "set-dotfiles" ]]; then
 		    set_dotfiles
 	  elif [[ $cmd == "dotfiles" ]]; then
 		    get_dotfiles
