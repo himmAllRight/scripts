@@ -6,6 +6,7 @@ usage() {
 	  echo "Usage:"
 	  echo "  base_solus                          - install solus basemin + base pkgs"
 	  echo "  basemin_solus                       - install solus base min pkgs"
+	  echo "  ubuntu-cloud-setup                  - install pkgs and setup configs for Ubuntu cloud"
 	  echo "  dotfiles                            - get dotfiles"
     echo "  dev-setup                           - setup dev environments"
 	  echo "  scripts                             - install scripts"
@@ -86,6 +87,29 @@ setup_i3wm-solus() {
     # Clone my i3blocks
     cd "$HOME/Builds/"
     git clone https://github.com/himmAllRight/i3blocks
+
+}
+
+basemin_ubuntu() {
+    sudo apt-get update
+
+    sudo apt-get install \
+         vim \
+         stow \
+         git \
+         tmux \
+         fish \
+         htop \
+         emacs
+}
+
+ubuntu_cloud_setup() {
+    ## Install base packages
+    basemin_ubuntu
+
+    ## Setup dotfiles
+    get_dotfiles
+    set_dotfiles
 
 }
 
