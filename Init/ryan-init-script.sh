@@ -81,6 +81,14 @@ setup_dev() {
     devsetup_golang
 }
 
+# Setup the i3 window manager and associated packages
+setup_i3wm-solus() {
+    # Clone my i3blocks
+    cd "$HOME/Builds/"
+    git clone https://github.com/himmAllRight/i3blocks
+
+}
+
 # Bare Min apps for Solus Install
 basemin_solus() {
     ## Update System First
