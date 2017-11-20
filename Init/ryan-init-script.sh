@@ -7,7 +7,7 @@ usage() {
 	  echo "Usage:"
 	  echo "  base_solus                          - install solus basemin + base pkgs"
 	  echo "  basemin_solus                       - install solus base min pkgs"
-	  echo "  ubuntu-cloud-setup                  - install pkgs and setup configs for Ubuntu cloud"
+	  echo "  setup-ubuntu-cloud                  - install pkgs and setup configs for Ubuntu cloud"
 	  echo "  dotfiles                            - get dotfiles"
     echo "  dev-setup                           - setup dev environments"
 	  echo "  scripts                             - install scripts"
@@ -164,7 +164,7 @@ setup_solus_desktop() {
          # Dev Packages
          python3 \
              golang
-    
+
     setup_website
 }
 
@@ -184,6 +184,8 @@ main() {
 	  elif [[ $cmd == "basemin-solus" ]]; then
 		    check_is_sudo
 		    basemin_solus
+	  elif [[ $cmd == "setup-ubuntu-cloud" ]]; then
+		    ubuntu_cloud_setup 
 	  elif [[ $cmd == "get-dotfiles" ]]; then 
 		    get_dotfiles
 	  elif [[ $cmd == "set-dotfiles" ]]; then
