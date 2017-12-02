@@ -105,7 +105,7 @@ setup_i3wm-solus() {
 basemin_ubuntu() {
     sudo apt-get update
 
-    sudo apt-get install \
+    sudo apt-get install -y \
          vim \
          stow \
          git \
