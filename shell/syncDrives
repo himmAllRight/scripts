@@ -1,6 +1,0 @@
-#!/bin/bash
-echo $(date) >> /Data1/syncLog.txt
-sudo rsync -avzh --stats --delete /Data1/ /Data2/ >> /var/log/syncDrives/`date +"%F_%H_%M_%S"`.log
-echo $(date) >> /Data1/syncLog.txt
-echo >> /Data1/syncLog.txt
-cp /Data1/syncLog.txt /Data2/

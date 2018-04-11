@@ -1,5 +1,5 @@
 #!/bin/bash
-# Converts a folder into a tar.gz package with the date.
+# Converts a folder into a package with the date.
 # Please Note, when writing what folder to package, do not put '/' the end.
 #
 # Correct Example: create_package example_folder

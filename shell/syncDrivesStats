@@ -1,8 +1,0 @@
-#!/bin/bash
-echo $(date) >> /Data1/syncLogStats.txt
-rsync -avzh --stats -h --delete /Data1/ryan/ /Data2/ryan/
-echo $(date) >> /Data1/syncLogStats.txt
-echo >> /Data1/syncLogStats.txt
-cp /Data1/syncLogStats.txt /Data2/
-cp /Data1/syncLogStats.txt /Data1/ryan/Dropbox/
-cp /Data1/syncLogStats.txt /Data1/ryan/owncloud/

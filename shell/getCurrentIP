@@ -1,5 +1,0 @@
-#/bin/bash
-# gets the current external ip and prints it with date to file.
-
-curl http://ipecho.net/plain > ~/owncloud/current_ip.txt
-
