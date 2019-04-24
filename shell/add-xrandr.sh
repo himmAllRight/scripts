@@ -2,7 +2,7 @@
 
 # A function to prompt the user if they want to switch to the new mode now.
 switch_to_new_mode () {
-	echo -n "Switch to new mode now? [y/n]: "
+	echo -n "Switch to mode $modename now? [y/n]: "
 	read change
 	if [ "$change" == "y" ]
 	then
@@ -17,18 +17,14 @@ switch_to_new_mode () {
 create_new_mode () {
 	echo "Adding new mode: $gtf_output"
 	xrandr --newmode $gtf_output
-	echo "Adding new mode [$modename] to display [$MONITOR]"
+	echo "Adding new mode $modename to display $MONITOR"
 	xrandr --addmode $MONITOR $modename
 	echo "Done!"
-	switch_to_new_mode
 }
 
 # Message if the mode appears to already exist
 mode_already_exists () {
-	echo "Hmmm... I think that mode already exists. Verify the xrandr output for me?"
-	echo "Don't worry. I'll print it in $ESLEEP seconds..."
-	sleep $ESLEEP
-	xrandr
+	echo "Hmmm... I think the mode $modename already exists."
 }
 
 ## Main Function to set vars and code
@@ -47,8 +43,10 @@ main () {
 	if [ "$modeexists" == "" ]
 	then
 		create_new_mode
+	    switch_to_new_mode
 	else
 		mode_already_exists
+	    switch_to_new_mode
 	fi
 }
 
